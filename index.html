@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Cypher Interactive Page</title>
+  </head>
+  <body>
+    <h1>Cypher Interactive Page</h1>
+    <label for="message">Message:</label>
+    <input type="text" id="message" name="message"><br><br>
+    <button id="encodeBtn">Encode Message</button>
+    
+    <hr>
+    
+    <h2>Output:</h2>
+    <p id="originalMessage"></p>
+    <p id="encodedMessage"></p>
+    
+    <script src="cypher.js"></script>
+    <script>
+      const encodeBtn = document.getElementById('encodeBtn');
+      const messageInput = document.getElementById('message');
+      const originalMessageEl = document.getElementById('originalMessage');
+      const encodedMessageEl = document.getElementById('encodedMessage');
+      
+      encodeBtn.addEventListener('click', () => {
+        const message = messageInput.value;
+        const encodedMessage = encodeMessage(message);
+        originalMessageEl.textContent = `Original message: ${message}`;
+        encodedMessageEl.textContent = `Encoded message: ${encodedMessage}`;
+      });
+    </script>
+  </body>
+</html>
